@@ -16,7 +16,7 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email_verified_at' => now(),
-                'password' => Hash::make('Fitgreen@2025'),
+                'password' => Hash::make('  @2025'),
                 'remember_token' => Str::random(10),
             ]
         );

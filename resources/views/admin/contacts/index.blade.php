@@ -7,7 +7,8 @@
 @stop
 
 @section('content')
-    <table class="table table-bordered table-striped">
+
+    <table id="contacts-table" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>#</th>
@@ -33,5 +34,25 @@
         </tbody>
     </table>
 
-    {{ $contacts->links() }}
+@stop
+
+@section('css')
+    {{-- DataTables CSS --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+@stop
+
+@section('js')
+    {{-- DataTables Scripts --}}
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#contacts-table').DataTable({
+                responsive: true,
+                autoWidth: false,
+                pageLength: 25, // optional
+            });
+        });
+    </script>
 @stop

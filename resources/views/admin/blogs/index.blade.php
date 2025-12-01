@@ -7,9 +7,10 @@
 @stop
 
 @section('content')
+
     <a href="{{ route('blogs.create') }}" class="btn btn-primary mb-3">Add Blog</a>
 
-    <table class="table table-bordered table-striped">
+    <table id="blogs-table" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>#</th>
@@ -50,5 +51,24 @@
         </tbody>
     </table>
 
-    {{ $blogs->links() }}
+@stop
+
+@section('css')
+    {{-- DataTables AdminLTE Style --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+@stop
+
+@section('js')
+    {{-- DataTables Scripts --}}
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#blogs-table').DataTable({
+                responsive: true,
+                autoWidth: false,
+            });
+        });
+    </script>
 @stop

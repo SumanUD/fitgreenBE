@@ -32,8 +32,3 @@
     </form>
 @endsection
 
-@section('auth_footer')
-    <p class="my-0">
-        <a href="{{ route('password.request') }}">Forgot password?</a>
-    </p>
-@stop
